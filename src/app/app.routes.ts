@@ -1,20 +1,40 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { ViewComponent } from './components/view/view.component';
+import { JobComponent } from './components/job/job.component';
+import { HomeContentComponent } from './components/home/home-content.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomeComponent } from './components/home/home.component';
-import { JobComponent } from './components/job/job.component';
 
 export const routes: Routes = [
-  { path: '', component: LandingComponent },
-  { path: 'login', component: LoginComponent },
-  { 
-    path: 'home', 
+  {
+    path: '',
+    component: LandingComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
     component: HomeComponent,
     children: [
-      { path: 'job', component: JobComponent },
-      // You can add a data component route here when you create it
-      // { path: 'data', component: DataComponent },
+      {
+        path: '',
+        component: HomeContentComponent
+      },
+      {
+        path: 'view',
+        component: ViewComponent
+      },
+      {
+        path: 'job',
+        component: JobComponent
+      }
     ]
   },
-  { path: '**', redirectTo: '' }
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];

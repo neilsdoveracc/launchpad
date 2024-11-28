@@ -3,14 +3,15 @@
   
   <nav class="sidebar" [class.expanded]="isSidebarExpanded">
     <ul>
-      <li><a routerLink="/home/data">Data</a></li>
-      <li><a routerLink="/home/job">Job</a></li>
+      <li></li>
+      <li></li>
+      <li><a routerLink="/home" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Dashboard</a></li>
+      <li><a routerLink="/home/view" routerLinkActive="active">View</a></li>
+      <li><a routerLink="/home/job" routerLinkActive="active">Job</a></li>
     </ul>
   </nav>
 
   <div class="content">
-    <h1>Welcome, {{ username }}!</h1>
-    <p>This is your home page after logging in.</p>
     <router-outlet></router-outlet>
   </div>
 

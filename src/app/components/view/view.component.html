@@ -1,0 +1,23 @@
+<!-- view.component.html -->
+<div class="view-container">
+  <h2>View Component</h2>
+  
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading">
+    Loading tiles...
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <!-- Tiles Grid -->
+  <div class="tiles-grid" *ngIf="!loading && !error">
+    <div class="tile" *ngFor="let tile of tiles">
+      <img *ngIf="tile.imageUrl" [src]="tile.imageUrl" [alt]="tile.title">
+      <h3>{{ tile.title }}</h3>
+      <p>{{ tile.description }}</p>
+    </div>
+  </div>
+</div>
