@@ -1,62 +1,38 @@
-<!-- src/app/components/dashboard/dashboard.component.html -->
-<div class="dashboard-container">
-    <aside class="sidebar">
-      <div class="user-info">
-        <div class="avatar">
-          <span>{{ userName.charAt(0) }}</span>
-        </div>
-        <h3>{{ userName }}</h3>
-      </div>
-      
-      <nav class="sidebar-nav">
-        <ul>
-          <li><a href="#" class="active">Dashboard</a></li>
-          <li><a href="#">Jobs</a></li>
-          <li><a href="#">Candidates</a></li>
-          <li><a href="#">Interviews</a></li>
-          <li><a href="#">Settings</a></li>
-        </ul>
-      </nav>
-    </aside>
-  
-    <main class="main-content">
-      <header class="dashboard-header">
-        <h1>Dashboard</h1>
-        <button class="logout-btn" (click)="logout()">Logout</button>
-      </header>
-  
-      <div class="dashboard-stats">
-        <div class="stat-card">
-          <h3>Total Jobs</h3>
-          <p>24</p>
-        </div>
-        <div class="stat-card">
-          <h3>Active Candidates</h3>
-          <p>156</p>
-        </div>
-        <div class="stat-card">
-          <h3>Interviews This Week</h3>
-          <p>12</p>
-        </div>
-        <div class="stat-card">
-          <h3>Hired This Month</h3>
-          <p>8</p>
-        </div>
-      </div>
-  
-      <div class="recent-activity">
-        <h2>Recent Activity</h2>
-        <div class="activity-list">
-          <div class="activity-item">
-            <span class="activity-date">Today</span>
-            <p>New candidate application for Senior Developer position</p>
-          </div>
-          <div class="activity-item">
-            <span class="activity-date">Yesterday</span>
-            <p>Interview scheduled with John Smith</p>
-          </div>
-          <!-- Add more activity items as needed -->
-        </div>
-      </div>
-    </main>
+<div class="analytics-dashboard">
+  <!-- Overview Stats -->
+  <div class="overview">
+    <div class="overview-item" *ngFor="let status of jrStatuses">
+      <h3>{{ status.status }}</h3>
+      <p>{{ status.count }} JRs</p>
+    </div>
   </div>
+
+  <!-- Vendor Analytics -->
+  <div class="vendor-analytics">
+    <h2>Vendor Performance</h2>
+    <div class="vendor-card" *ngFor="let vendor of vendors">
+      <h3>{{ vendor.name }}</h3>
+      <p>Total JRs Created: {{ vendor.jrsCreated }}</p>
+      <p>Resumes Uploaded: {{ vendor.resumesUploaded }}</p>
+      <p>Resumes Shortlisted: {{ vendor.resumesShortlisted }}</p>
+      <p>JRs In Progress: {{ vendor.jrsInProgress }}</p>
+      <p>JRs Closed: {{ vendor.jrsClosed }}</p>
+    </div>
+  </div>
+
+  <!-- Analytics Charts -->
+  <div class="charts">
+    <div class="chart-container">
+      <h2>Job Requirements by Status</h2>
+      <div echarts [options]="chartData" class="chart" style="height: 400px;"></div>
+    </div>
+
+    <!-- Time Breakdown for Approvals -->
+    <div class="time-analysis">
+      <h2>Approval Time Breakdown</h2>
+      <div *ngFor="let approval of approvalTime | keyvalue">
+        <p>{{ approval.key }}: {{ approval.value }} days</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -103,3 +103,88 @@ main {
 .show-sidebar {
     transform: translateX(0);
 }
+
+/* analytics.component.scss */
+.analytics-dashboard {
+    padding: 20px;
+    background-color: #f5f5f5;
+  
+    .overview {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+      
+      .overview-item {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 150px;
+        text-align: center;
+        
+        h3 {
+          font-size: 1.2rem;
+          color: #333;
+        }
+  
+        p {
+          font-size: 1.5rem;
+          color: #008cba;
+        }
+      }
+    }
+  
+    .vendor-analytics {
+      margin-bottom: 30px;
+  
+      h2 {
+        font-size: 1.8rem;
+        color: #4CAF50;
+        margin-bottom: 15px;
+      }
+  
+      .vendor-card {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        
+        h3 {
+          font-size: 1.5rem;
+          color: #333;
+        }
+  
+        p {
+          font-size: 1rem;
+          color: #555;
+        }
+      }
+    }
+  
+    .charts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+  
+      .chart-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+  
+      .time-analysis {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        
+        p {
+          font-size: 1rem;
+          color: #333;
+        }
+      }
+    }
+  }
+  
