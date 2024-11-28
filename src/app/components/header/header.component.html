@@ -1,0 +1,30 @@
+<header class="header">
+    <!-- Logo on the left -->
+    <div class="logo">
+      <img src="../../../assets/images/logo.png" alt="Logo" />
+    </div>
+  
+    <!-- Navigation tabs in the center -->
+    <nav class="nav-tabs">
+      <ul>
+        <li [class.active]="activeTab === 'dashboard'" (click)="setActiveTab('dashboard')">Dashboard</li>
+        <li [class.active]="activeTab === 'job'" (click)="setActiveTab('job')">Job Portal</li>
+        <li [class.active]="activeTab === 'user'" (click)="setActiveTab('user')">User Portal</li>
+      </ul>
+    </nav>
+  
+    <!-- User Profile on the right -->
+    <div class="user-profile">
+      <span>Hi, {{ userName }}</span>
+      <div class="profile-pic" (click)="toggleDropdown()">
+        <img src="./../../assets/images/profile-icon.svg" alt="User Profile" />
+      </div>
+      <div class="dropdown" *ngIf="showDropdown">
+        <ul>
+          <li><a href="#">User Profile</a></li>
+          <li><a href="#">Change Password</a></li>
+          <li (click)="logout()">Logout</li>
+        </ul>
+      </div>
+    </div>
+  </header>
