@@ -1,9 +1,11 @@
+// src/app/services/auth.service.ts
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 interface User {
   username: string;
-  // Add other user properties as needed
+  role: 'admin' | 'vendor';
 }
 
 interface LoginResponse {
@@ -15,27 +17,47 @@ interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private isAuthenticated: boolean = true; // Set to true by default
-  private user: User | null = { username: 'Default User' };
+  private isAuthenticated: boolean = false;
+  private userSubject = new BehaviorSubject<User | null>(null);
+  public user$ = this.userSubject.asObservable();
 
-  constructor() { }
+  constructor() {
+    // Check if user is stored in localStorage on service initialization
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      this.userSubject.next(user);
+      this.isAuthenticated = true;
+    }
+  }
 
   login(credentials: { username: string, password: string }): Observable<LoginResponse> {
-    // Simulate a successful login
-    this.isAuthenticated = true;
-    this.user = { username: credentials.username };
-    
-    const response: LoginResponse = {
-      token: 'fake-jwt-token',
-      user: this.user
+    // Simulate role-based authentication
+    // In real application, this would come from your backend
+    const isAdmin = credentials.username.toLowerCase().includes('admin');
+    const user: User = {
+      username: credentials.username,
+      role: isAdmin ? 'admin' : 'vendor'
     };
 
-    return of(response); // Return an Observable
+    const response: LoginResponse = {
+      token: 'fake-jwt-token',
+      user: user
+    };
+
+    // Store user info
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('user', JSON.stringify(user));
+    
+    this.isAuthenticated = true;
+    this.userSubject.next(user);
+
+    return of(response);
   }
 
   logout(): void {
     this.isAuthenticated = false;
-    this.user = null;
+    this.userSubject.next(null);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
   }
@@ -44,7 +66,19 @@ export class AuthService {
     return this.isAuthenticated;
   }
 
-  getUsername(): string {
-    return this.user?.username || '';
+  getCurrentUser(): User | null {
+    return this.userSubject.value;
+  }
+
+  getUserRole(): string | null {
+    return this.userSubject.value?.role || null;
+  }
+
+  isAdmin(): boolean {
+    return this.userSubject.value?.role === 'admin';
+  }
+
+  isVendor(): boolean {
+    return this.userSubject.value?.role === 'vendor';
   }
 }

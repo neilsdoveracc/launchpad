@@ -1,3 +1,4 @@
+<!-- src/app/components/login/login.component.html -->
 <div class="container">
   <div class="row justify-content-center align-items-center min-vh-100">
     <div class="col-md-6 col-lg-4">
@@ -6,6 +7,11 @@
           <h2 class="text-center mb-4 text-primary">Login</h2>
           
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <!-- Show error message if exists -->
+            <div *ngIf="loginError" class="alert alert-danger">
+              {{ loginError }}
+            </div>
+
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
               <div class="input-group">

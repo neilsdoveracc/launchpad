@@ -1,0 +1,12 @@
+[
+    {
+      "name": "John Doe",
+      "vendor": "Vendor A",
+      "cv": "john_doe_cv.pdf"
+    },
+    {
+      "name": "Jane Smith",
+      "vendor": "Vendor B",
+      "cv": "jane_smith_cv.pdf"
+    }
+  ]

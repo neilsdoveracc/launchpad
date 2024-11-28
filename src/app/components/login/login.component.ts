@@ -1,7 +1,9 @@
+// src/app/components/login/login.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +14,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  loginError: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -22,8 +29,20 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      // For demonstration, we'll just navigate to home
-      this.router.navigate(['/home']);
+      this.authService.login(this.loginForm.value).subscribe({
+        next: (response) => {
+          // Navigate based on user role
+          if (response.user.role === 'admin') {
+            this.router.navigate(['/home']);
+          } else {
+            this.router.navigate(['/vendor']);
+          }
+        },
+        error: (error) => {
+          this.loginError = 'Login failed. Please check your credentials.';
+          console.error('Login error:', error);
+        }
+      });
     }
   }
 }

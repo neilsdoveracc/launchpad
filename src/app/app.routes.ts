@@ -6,6 +6,8 @@ import { JobComponent } from './components/job/job.component';
 import { HomeContentComponent } from './components/home/home-content.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
+import { VendorLayoutComponent } from './components/vendor/vendor.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -16,9 +18,12 @@ export const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  // Admin routes
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'admin' },
     children: [
       {
         path: '',
@@ -34,10 +39,31 @@ export const routes: Routes = [
       }
     ]
   },
-  // New route for the 'view-req' component
   {
     path: 'view-req',
     component: ViewReqComponent
+  },
+  // Vendor routes
+  {
+    path: 'vendor',
+    component: VendorLayoutComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'vendor' },
+    children: [
+      {
+        path: '',
+        redirectTo: 'view',
+        pathMatch: 'full'
+      },
+      {
+        path: 'view',
+        component: ViewComponent
+      },
+      {
+        path: 'view-req',
+        component: ViewReqComponent
+      }
+    ]
   },
   {
     path: '**',

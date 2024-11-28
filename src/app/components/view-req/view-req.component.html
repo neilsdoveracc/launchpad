@@ -2,50 +2,93 @@
   <ng-container>
     <!-- Go Back Button -->
     <div class="back-arrow mt-3" (click)="goBack()">
-      <img src="../../../assets/back_arrow.png" alt="" style="height: 25px; width: 25px;">
+      <img src="../../../assets/back_arrow.png" alt="Back" style="height: 25px; width: 25px;">
     </div>
     <h2>Request Details</h2>
   </ng-container>
 
   <!-- Editable Form -->
   <form class="request-form" [formGroup]="reqForm">
-    <div class="form-group" >
+    <!-- Request ID -->
+    <div class="form-group">
       <label for="reqId">Request ID</label>
       <input type="text" class="form-control" id="reqId" formControlName="ReqId">
     </div>
 
+    <!-- Job Title -->
     <div class="form-group">
       <label for="jobTitle">Job Title</label>
       <input type="text" class="form-control" id="jobTitle" formControlName="JobTitle">
     </div>
 
+    <!-- Created By -->
     <div class="form-group">
       <label for="createdBy">Created By</label>
       <input type="text" class="form-control" id="createdBy" formControlName="CreatedBy">
     </div>
 
+    <!-- Created Date -->
     <div class="form-group">
       <label for="createdDate">Created Date</label>
-      <input type="text" class="form-control" id="CreatedDate" formControlName="CreatedBy">
+      <input type="text" class="form-control" id="createdDate" formControlName="CreatedDate">
     </div>
 
+    <!-- Department ID -->
     <div class="form-group">
       <label for="deptId">Department ID</label>
-      <input type="text" class="form-control" id="DeptId" formControlName="DeptId">
+      <input type="text" class="form-control" id="deptId" formControlName="DeptId">
     </div>
 
+    <!-- Status -->
     <div class="form-group">
       <label for="status">Status</label>
-      <input type="text" class="form-control" id="Status">
+      <input type="text" class="form-control" id="status" formControlName="Status">
     </div>
 
+    <!-- Approve to Next Level -->
     <div class="form-group">
       <label for="approve">Approve to next level?</label>
-      <select class="form-control" id="approve" [(ngModel)]="approvalDecision" name="approvalDecision" >
+      <select class="form-control" id="approve" [(ngModel)]="approvalDecision" name="approvalDecision">
         <option value="Yes">Yes</option>
         <option value="No">No</option>
       </select>
     </div>
 
+    <!-- CVs Uploaded Section: Only shown for Admin -->
+    <div class="form-group mt-4" *ngIf="isAdmin">
+      <h3>CVs Uploaded</h3>
+
+      <!-- Table for CVs -->
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Vendor Name</th>
+            <th>CV</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through candidates array using *ngFor -->
+          <tr *ngFor="let candidate of candidates">
+            <td>{{ candidate.name }}</td>
+            <td>{{ candidate.vendor }}</td>
+            <td>
+              <a
+                [href]="'../../../assets/' + candidate.cv"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View CV
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Message for empty list (optional) -->
+      <p *ngIf="candidates.length === 0" class="text-muted">
+        No CVs uploaded yet.
+      </p>
+    </div>
   </form>
 </div>
