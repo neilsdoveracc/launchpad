@@ -8,6 +8,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { VendorLayoutComponent } from './components/vendor/vendor.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export const routes: Routes = [
   {
@@ -36,7 +37,11 @@ export const routes: Routes = [
       {
         path: 'job',
         component: JobComponent
-      }
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
     ]
   },
   {
