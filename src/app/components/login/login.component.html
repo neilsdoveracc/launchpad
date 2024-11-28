@@ -1,14 +1,53 @@
-<div class="login-container">
-  <h2>Login</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="username">Username:</label>
-      <input id="username" type="text" formControlName="username">
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg">
+        <div class="card-body p-5">
+          <h2 class="text-center mb-4 text-primary">Login</h2>
+          
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-person"></i>
+                </span>
+                <input 
+                  id="username" 
+                  type="text" 
+                  class="form-control" 
+                  formControlName="username"
+                  placeholder="Enter username">
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="password" class="form-label">Password</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-lock"></i>
+                </span>
+                <input 
+                  id="password" 
+                  type="password" 
+                  class="form-control" 
+                  formControlName="password"
+                  placeholder="Enter password">
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button 
+                type="submit" 
+                class="btn btn-primary btn-lg"
+                [disabled]="!loginForm.valid">
+                <i class="bi bi-box-arrow-in-right me-2"></i>
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <div>
-      <label for="password">Password:</label>
-      <input id="password" type="password" formControlName="password">
-    </div>
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
-  </form>
+  </div>
 </div>

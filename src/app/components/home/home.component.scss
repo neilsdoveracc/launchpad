@@ -1,47 +1,103 @@
 .home-container {
   display: flex;
-  height: 100vh;
+  height: fit-content;
+  background-color: #aecbea;
 
+  /* Sidebar toggle button */
   .sidebar-toggle {
     position: fixed;
     top: 10px;
     left: 10px;
     z-index: 1000;
+    font-size: 1.5rem;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
   }
 
+  .sidebar-toggle:hover {
+    background-color: #0056b3;
+  }
+
+  /* Sidebar container */
   .sidebar {
     width: 0;
     overflow: hidden;
     transition: width 0.3s ease;
-    background-color: #f8f9fa;
-    
-    &.expanded {
-      width: 200px;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-
-      li {
-        padding: 10px;
-
-        a {
-          text-decoration: none;
-          color: #333;
-        }
-      }
-    }
+    background-color: #343a40; /* Dark background */
+    color: white;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
   }
 
+  /* Expanded Sidebar */
+  .sidebar.expanded {
+    width: 250px; /* Expanded width */
+  }
+
+  /* Sidebar links */
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  .sidebar li {
+    padding: 15px 20px;
+    text-align: left;
+  }
+
+  /* Sidebar Link Styles */
+  .sidebar a {
+    text-decoration: none;
+    color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Sidebar active link styling */
+  .sidebar a.active {
+    background-color: #007bff; /* Active link highlight */
+    color: white;
+  }
+
+  /* Hover effect for links */
+  .sidebar a:hover {
+    background-color: #495057;
+  }
+
+  /* Icon spacing in links */
+  .sidebar a i {
+    margin-right: 10px;
+  }
+
+  /* Content section */
   .content {
     flex-grow: 1;
     padding: 20px;
-    margin-left: 50px;
+    margin-left: 250px; /* Ensure content does not overlap with sidebar */
+    transition: margin-left 0.3s ease;
   }
 
+  /* Adjust content margin on smaller screens or collapsed sidebar */
+  .sidebar.expanded + .content {
+    margin-left: 250px;
+  }
+
+  /* Logout link */
   .logout-link {
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: 10px;
     padding: 5px 10px;
@@ -49,5 +105,40 @@
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    margin-right: 2rem;
   }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 0;
+      z-index: 1001; /* Ensure it's on top of content */
+    }
+
+    .sidebar.expanded {
+      width: 200px; /* Expanded width on small screens */
+    }
+
+    .content {
+      margin-left: 0;
+    }
+
+    .sidebar-toggle {
+      left: 20px;
+      height: 10px;
+    }
+  }
+  .header-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-left: 60px; /* Space from toggle button */
+  }
+  
+  .header-image img {
+    max-width: 150px; /* Small size - adjust as needed */
+    height: auto;
+    object-fit: contain;
+  }  
 }

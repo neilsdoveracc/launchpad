@@ -1,51 +1,161 @@
 <div class="job-form-container">
-    <h2>Submit a New Job</h2>
-    <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="title">Date of MPR:</label>
-        <input id="title" type="text" formControlName="title" required>
+  <div class="header">JOB REQUISITION FORM</div>
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+    
+    <!-- Job Details Section -->
+    <div class="section">
+      <div class="section-header" (click)="toggleSection('jobDetails')">
+        <span>Job Details</span>
+        <span class="toggle-icon">{{ sections['jobDetails'] ? '−' : '+' }}</span>
       </div>
-      
-      <div class="form-group">
-        <label for="company">Job requisted By:</label>
-        <input id="company" type="text" formControlName="company" required>
+      <div *ngIf="sections['jobDetails']">
+        <div class="row">
+          <label for="jrfDate">JRF Date</label> <!-- date today not edit -->
+          <textarea id="jrfDate" formControlName="jrfDate"></textarea>
+        </div>
+        <div class="row">
+          <label for="jobTitle">Job Title</label><!-- mandatory -->
+          <textarea id="jobTitle" formControlName="jobTitle"></textarea>
+        </div>
+        <div class="row">
+          <label for="department">Department</label>
+          <textarea id="department" formControlName="department"></textarea>
+        </div>
+        <div class="row">
+          <label for="project">Project</label>
+          <textarea id="project" formControlName="project"></textarea>
+        </div>
+        <div class="row">
+          <label for="managerName">Hiring Manager Name</label>
+          <textarea id="managerName" formControlName="managerName"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Number of positions open</label>
+          <textarea id="location" formControlName="positions"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Duration of contract</label>
+          <textarea id="location" formControlName="duration"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Start Date</label>
+          <textarea id="location" formControlName="start"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">End Date</label>
+          <textarea id="location" formControlName="end"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Competency</label>
+          <textarea id="location" formControlName="Competency"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Employment Type</label>
+          <textarea id="location" formControlName="empType"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Location Type</label>
+          <textarea id="location" formControlName="locationType"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Location</label>
+          <textarea id="location" formControlName="location"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Estimated Budget</label>
+          <textarea id="location" formControlName="budget"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Working Hours</label>
+          <textarea id="location" formControlName="hrs"></textarea>
+        </div>
       </div>
-      
-      <div class="form-group">
-        <label for="location">Department:</label>
-        <input id="location" type="text" formControlName="location" required>
-      </div>
-      
-      <div class="form-group">
-        <label for="description">Function:</label>
-        <textarea id="description" formControlName="description" rows="4"></textarea>
-      </div>
+    </div>
 
-      <div class="form-group">
-        <label for="description">Hiring Manager:</label>
-        <textarea id="description" formControlName="description" rows="4"></textarea>
+    <!-- Role Details Section -->
+    <div class="section">
+      <div class="section-header" (click)="toggleSection('roleDetails')">
+        <span>Role Details</span>
+        <span class="toggle-icon">{{ sections['roleDetails'] ? '−' : '+' }}</span>
       </div>
+      <div *ngIf="sections['roleDetails']">
+        <div class="row">
+          <label for="jrfDate">Roles And Responsibility</label>
+          <textarea id="jrfDate" formControlName="RolesAndResponsibility"></textarea>
+        </div>
+        <div class="row">
+          <label for="jobTitle">Minimum Qualification</label><!-- mandatory -->
+          <textarea id="jobTitle" formControlName="MinQualification"></textarea>
+        </div>
+        <div class="row">
+          <label for="department">Required Skills</label>
+          <textarea id="department" formControlName="RequiredSkills"></textarea>
+        </div>
+        <div class="row">
+          <label for="project">Preferred Skills</label>
+          <textarea id="project" formControlName="PreferredSkills"></textarea>
+        </div>
+        <div class="row">
+          <label for="managerName">Specialization</label>
+          <textarea id="managerName" formControlName="Specialization"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Total Experience open</label>
+          <textarea id="location" formControlName="TotalExp"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Relevant Experience</label>
+          <textarea id="location" formControlName="RelevantExp"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">CTQ</label>
+          <textarea id="location" formControlName="CTQ"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Benefits</label>
+          <textarea id="location" formControlName="Benefits"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Special Requirements</label>
+          <textarea id="location" formControlName="SpecialRequirements"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">References</label>
+          <textarea id="location" formControlName="References"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Location</label>
+          <textarea id="location" formControlName="location"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Rate Card Id</label>
+          <textarea id="location" formControlName="RateCardId"></textarea>
+        </div>
+        <div class="row">
+          <label for="location">Status</label>
+          <textarea id="location" formControlName="Status"></textarea>
+        </div>
+      </div>
+    </div>
 
-      <div class="form-group">
-        <label for="description">Designation:</label>
-        <textarea id="description" formControlName="description" rows="4"></textarea>
+    <div class="section">
+      <div class="section-header" (click)="toggleSection('additionalInfo')">
+        <span>Additional Info</span>
+        <span class="toggle-icon">{{ sections['additionalInfo'] ? '−' : '+' }}</span>
       </div>
+      <div *ngIf="sections['additionalInfo']">
+        <div class="row">
+          <label for="jrfDate">Sourcing Manager</label>
+          <textarea id="jrfDate" formControlName="SourcingManager"></textarea>
+        </div>
+        <div class="row">
+          <label for="jobTitle">Mandatory Approver</label><!-- mandatory -->
+          <textarea id="jobTitle" formControlName="mandatoryApprover"></textarea>
+        </div>
+      </div>
+    </div>
 
-      <div class="form-group">
-        <label for="description">Location:</label>
-        <textarea id="description" formControlName="description" rows="4"></textarea>
-      </div>
 
-      <div class="form-group">
-        <label for="description">Number of positions:</label>
-        <textarea id="description" formControlName="description" rows="4"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="description">Competency:</label>
-        <textarea id="description" formControlName="description" rows="4"></textarea>
-      </div>
-      
-      <button type="submit" [disabled]="!jobForm.valid">Submit Job</button>
-    </form>
-  </div>
+    <button type="submit" [disabled]="!jobForm.valid">Submit Job</button>
+  </form>
+</div>

@@ -1,16 +1,28 @@
 <div class="home-container">
-  <button class="sidebar-toggle" (click)="toggleSidebar()">☰</button>
+  <button class="sidebar-toggle p-1" (click)="toggleSidebar()">☰</button>
   
   <nav class="sidebar" [class.expanded]="isSidebarExpanded">
-    <ul>
+    <ul class="list-unstyled p-3">
       <li></li>
       <li></li>
-      <li><a routerLink="/home" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">Dashboard</a></li>
-      <li><a routerLink="/home/view" routerLinkActive="active">View</a></li>
-      <li><a routerLink="/home/job" routerLinkActive="active">Job</a></li>
+      <li class="sidebar-item">
+        <a routerLink="/home" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" class="sidebar-link">
+          <i class="bi bi-house-door"></i> Dashboard
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a routerLink="/home/view" routerLinkActive="active" class="sidebar-link">
+          <i class="bi bi-eye"></i> View
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a routerLink="/home/job" routerLinkActive="active" class="sidebar-link">
+          <i class="bi bi-briefcase"></i> Create JRF
+        </a>
+      </li>
     </ul>
   </nav>
-
+  
   <div class="content">
     <router-outlet></router-outlet>
   </div>

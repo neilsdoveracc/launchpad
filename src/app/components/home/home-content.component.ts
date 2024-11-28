@@ -1,4 +1,3 @@
-// home-content.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -8,30 +7,38 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterLink],
   template: `
-    <div class="home-content">
-      <div class="header">
-        <h1>Welcome, {{ username }}</h1>
-        <div class="action-buttons">
-          <button class="btn create-user" (click)="createUser()">Create User</button>
-          <button class="btn create-job" routerLink="/home/job">Create Job</button>
+    <div class="container mt-5 home-content">
+      <div class="row mb-4">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+          <h1 class="text-primary">Welcome, {{ username }}</h1>
+          <div class="action-buttons">
+            <button class="btn btn-success me-2" (click)="createUser()">Create User</button>
+            <button class="btn btn-primary" routerLink="/home/job">Create JRF</button>
+          </div>
         </div>
       </div>
 
-      <div class="analytics-box">
-        <h2>Analytics Dashboard</h2>
-        <div class="analytics-content">
-          <div class="metrics">
-            <div class="metric-item">
-              <h3>Total Users</h3>
-              <p>1,234</p>
+      <div class="card mb-4 analytics-box">
+        <div class="card-body">
+          <h2 class="card-title text-secondary">Here's a quick overview</h2>
+          <div class="row metrics">
+            <div class="col-md-4 metric-item">
+              <div class="bg-light p-3 rounded">
+                <h3 class="text-muted">Total Users</h3>
+                <p class="fw-bold display-6">1,234</p>
+              </div>
             </div>
-            <div class="metric-item">
-              <h3>Active Jobs</h3>
-              <p>56</p>
+            <div class="col-md-4 metric-item">
+              <div class="bg-light p-3 rounded">
+                <h3 class="text-muted">Active Jobs</h3>
+                <p class="fw-bold display-6">56</p>
+              </div>
             </div>
-            <div class="metric-item">
-              <h3>Completion Rate</h3>
-              <p>87%</p>
+            <div class="col-md-4 metric-item">
+              <div class="bg-light p-3 rounded">
+                <h3 class="text-muted">Completion Rate</h3>
+                <p class="fw-bold display-6">87%</p>
+              </div>
             </div>
           </div>
         </div>
@@ -41,97 +48,15 @@ import { RouterLink } from '@angular/router';
   styles: [`
     .home-content {
       padding: 20px;
-      height: 100%;
     }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      margin: 0;
-      color: #333;
-    }
-
     .action-buttons {
       display: flex;
-      gap: 15px;
     }
-
-    .btn {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .create-user {
-      background-color: #4CAF50;
-      color: white;
-      
-      &:hover {
-        background-color: #45a049;
-      }
-    }
-
-    .create-job {
-      background-color: #2196F3;
-      color: white;
-      
-      &:hover {
-        background-color: #1976D2;
-      }
-    }
-
     .analytics-box {
-      background: white;
-      border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 25px;
-      height: calc(100% - 100px);
-      
-      h2 {
-        margin: 0 0 20px 0;
-        color: #333;
-        font-size: 1.5rem;
-      }
     }
-
-    .analytics-content {
-      height: calc(100% - 40px);
-      overflow-y: auto;
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-
     .metric-item {
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 8px;
       text-align: center;
-
-      h3 {
-        margin: 0 0 10px 0;
-        color: #666;
-        font-size: 1rem;
-      }
-
-      p {
-        margin: 0;
-        color: #333;
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
     }
   `]
 })

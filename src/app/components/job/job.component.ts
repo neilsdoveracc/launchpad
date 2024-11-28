@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-job',
@@ -12,19 +12,33 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 export class JobComponent {
   jobForm: FormGroup;
 
+  sections: { [key: string]: boolean } = {
+    jobDetails: true,
+    projectDetails: true,
+    additionalInfo: true
+  };
+
   constructor(private fb: FormBuilder) {
     this.jobForm = this.fb.group({
-      title: ['', Validators.required],
-      company: ['', Validators.required],
-      location: ['', Validators.required],
-      description: ['']
+      jrfDate: ['', Validators.required],
+      jobTitle: ['', Validators.required],
+      department: ['', Validators.required],
+      project: [''],
+      managerName: [''],
+      location: [''],
+      employmentType: [''],
+      contractDuration: [''],
+      numPositions: ['']
     });
+  }
+
+  toggleSection(section: keyof typeof this.sections) {
+    this.sections[section] = !this.sections[section];
   }
 
   onSubmit() {
     if (this.jobForm.valid) {
       console.log('Form submitted:', this.jobForm.value);
-      // Here you would typically send the data to a service
       alert('Job submitted successfully!');
       this.jobForm.reset();
     }

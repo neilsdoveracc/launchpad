@@ -1,0 +1,50 @@
+[
+        {
+            "ReqId": 12341,
+            "JobTitle": "Software Engineer",
+            "CreatedBy": "admin",
+            "CreatedDate": "2024-11-28T12:00:00",
+            "DeptId": 678,
+            "Status": "Open"
+        },
+        {
+            "ReqId": 12342,
+            "JobTitle": "QA Engineer",
+            "CreatedBy": "admin",
+            "CreatedDate": "2024-11-28T12:00:00",
+            "DeptId": 678,
+            "Status": "Closed"
+        },
+        {
+            "ReqId": 12343,
+            "JobTitle": "Project Manager",
+            "CreatedBy": "admin",
+            "CreatedDate": "2024-11-28T12:00:00",
+            "DeptId": 678,
+            "Status": "Closed"
+        },
+        {
+            "ReqId": 12344,
+            "JobTitle": "Team Lead",
+            "CreatedBy": "admin",
+            "CreatedDate": "2024-11-28T12:00:00",
+            "DeptId": 678,
+            "Status": "Open"
+        },
+        {
+            "ReqId": 12345,
+            "JobTitle": "Director",
+            "CreatedBy": "admin",
+            "CreatedDate": "2024-11-28T12:00:00",
+            "DeptId": 678,
+            "Status": "Rejected"
+        },
+        {
+            "ReqId": 12346,
+            "JobTitle": "Software Engineer",
+            "CreatedBy": "admin",
+            "CreatedDate": "2024-11-28T12:00:00",
+            "DeptId": 678,
+            "Status": "Open"
+        }
+]
