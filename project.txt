@@ -1,0 +1,67 @@
+Project Structure:
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── landing/
+│   │   │   ├── landing.component.ts
+│   │   │   ├── landing.component.html
+│   │   │   └── landing.component.scss
+│   │   ├── login/
+│   │   │   ├── login.component.ts
+│   │   │   ├── login.component.html
+│   │   │   └── login.component.scss
+│   │   └── home/
+│   │       ├── home.component.ts
+│   │       ├── home.component.html
+│   │       └── home.component.scss
+│   ├── app.component.ts
+│   └── app.routes.ts
+├── main.ts
+└── index.html
+```
+
+Key Points about Routing and Project Setup:
+
+1. Standalone Components: All components (Landing, Login, and Home) are set up as standalone components, which means they manage their own dependencies.
+
+2. Routing:
+   - Routes are defined in `app.routes.ts`.
+   - The main routes are: 
+     - '/' for the landing page
+     - '/login' for the login page
+     - '/home' for the home page
+   - A catch-all route redirects any undefined routes to the landing page.
+
+3. App Component:
+   - The `AppComponent` is minimal and only includes the `<router-outlet>` to render the current route's component.
+
+4. Main.ts:
+   - The application is bootstrapped using `bootstrapApplication` instead of `NgModule`.
+   - Providers, including routing, are set up in the `bootstrapApplication` call.
+
+5. No NgModule:
+   - This project doesn't use `NgModule`. Instead, it leverages Angular's newer standalone component architecture.
+
+6. Navigation:
+   - Navigation between pages is handled using `routerLink` in templates and `Router.navigate()` in component logic.
+
+7. Form Handling:
+   - The login form uses Reactive Forms, which are imported in the `LoginComponent`.
+
+8. Styling:
+   - Each component has its own SCSS file for component-specific styles.
+
+9. Authentication:
+   - This basic setup doesn't include actual authentication. In a real application, you'd want to add an auth service and guards.
+
+10. Lazy Loading:
+    - For larger applications, you might want to implement lazy loading for routes, which isn't shown in this basic setup but is supported with standalone components.
+
+To get this project running:
+1. Ensure you have Angular CLI installed.
+2. Create a new project using `ng new project-name --standalone`
+3. Replace the contents of `src/` with the provided files.
+4. Run `ng serve` to start the development server.
+
+This structure provides a clean, modular setup that's easy to expand upon for larger applications while leveraging Angular's latest features for standalone components.

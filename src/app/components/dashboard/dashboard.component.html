@@ -1,0 +1,62 @@
+<!-- src/app/components/dashboard/dashboard.component.html -->
+<div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="user-info">
+        <div class="avatar">
+          <span>{{ userName.charAt(0) }}</span>
+        </div>
+        <h3>{{ userName }}</h3>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#" class="active">Dashboard</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Candidates</a></li>
+          <li><a href="#">Interviews</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+  
+    <main class="main-content">
+      <header class="dashboard-header">
+        <h1>Dashboard</h1>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </header>
+  
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <h3>Total Jobs</h3>
+          <p>24</p>
+        </div>
+        <div class="stat-card">
+          <h3>Active Candidates</h3>
+          <p>156</p>
+        </div>
+        <div class="stat-card">
+          <h3>Interviews This Week</h3>
+          <p>12</p>
+        </div>
+        <div class="stat-card">
+          <h3>Hired This Month</h3>
+          <p>8</p>
+        </div>
+      </div>
+  
+      <div class="recent-activity">
+        <h2>Recent Activity</h2>
+        <div class="activity-list">
+          <div class="activity-item">
+            <span class="activity-date">Today</span>
+            <p>New candidate application for Senior Developer position</p>
+          </div>
+          <div class="activity-item">
+            <span class="activity-date">Yesterday</span>
+            <p>Interview scheduled with John Smith</p>
+          </div>
+          <!-- Add more activity items as needed -->
+        </div>
+      </div>
+    </main>
+  </div>
