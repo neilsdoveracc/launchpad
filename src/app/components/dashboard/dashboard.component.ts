@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input } from '
 import { CommonModule } from '@angular/common';
 import { Chart, registerables } from 'chart.js';
 import  ChartDataLabels from 'chartjs-plugin-datalabels';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
+import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 
 Chart.register(...registerables);
 Chart.register(ChartDataLabels);
@@ -9,7 +12,9 @@ Chart.register(ChartDataLabels);
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, 
+    RouterOutlet,
+    RouterLinkActive,],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -21,6 +26,8 @@ export class DashboardComponent implements AfterViewInit {
   @ViewChild('pieCanvas') pieCanvas!: ElementRef;
   @ViewChild('meterCanvas') meterCanvas!: ElementRef;
   @ViewChild('funnelCanvas') funnelCanvas!: ElementRef;
+
+  //  constructor(private toastr: ToastrService,) {}
 
   isDropdownOpen = false;
     @Input() userName: string = 'John Doe'; // Example default user name
@@ -115,6 +122,12 @@ export class DashboardComponent implements AfterViewInit {
   }
 
   chart: any;
+
+  // viewUsersClicked() {
+  //   this.toastr.warning('Yet to be implemented', 'Warning!', {
+  //     timeOut: 2000,
+  //   });
+  // }
 
   ngAfterViewInit(): void {
     this.createRecruitmentFunnel();
@@ -269,7 +282,19 @@ export class DashboardComponent implements AfterViewInit {
           x: {
             title: {
               display: true,
-              text: 'Months'
+              text: 'Months',
+              color: 'blue',
+              font: {
+                family: 'Arial',
+                size: 8,
+                weight: 'bold',
+              }
+            },
+            ticks: {
+              color: 'red',
+              font: {
+                family: 'Arial'
+              }
             }
           },
           y: {

@@ -4,6 +4,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { ToastrModule } from 'ngx-toastr';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -13,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), ToastrModule.forRoot()],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

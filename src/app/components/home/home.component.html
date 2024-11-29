@@ -1,5 +1,5 @@
 <div class="home-container">
-  <button class="sidebar-toggle p-1" (click)="toggleSidebar()">☰</button>
+  <button class="sidebar-toggle p-1">☰</button>
   
   <nav class="sidebar" [class.expanded]="isSidebarExpanded">
     <ul class="list-unstyled p-3">
@@ -20,6 +20,11 @@
           <i class="bi bi-briefcase"></i> Create JRF
         </a>
       </li>
+      <li class="sidebar-item">
+        <a routerLink="/home/user" routerLinkActive="active" class="sidebar-link">
+          <i class="bi bi-eye"></i> View Users
+        </a>
+      </li>
     </ul>
   </nav>
   
@@ -27,5 +32,5 @@
     <router-outlet></router-outlet>
   </div>
 
-  <a class="logout-link" routerLink="/">Logout</a>
+  <a class="logout-link" style="margin-top: 1%;" routerLink="/">Logout</a>
 </div>

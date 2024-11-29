@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { VendorLayoutComponent } from './components/vendor/vendor.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { UserComponent } from './components/user/user.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,10 @@ export const routes: Routes = [
       {
         path: 'job',
         component: JobComponent
+      },
+      {
+        path: 'user',
+        component: UserComponent
       },
       {
         path: 'dashboard',

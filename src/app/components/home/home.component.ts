@@ -2,6 +2,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
+import { timeout } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +13,21 @@ import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
     CommonModule, 
     RouterLink, 
     RouterOutlet,
-    RouterLinkActive
+    RouterLinkActive,
+    ToastrModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   username: string = 'User'; // Replace with actual username logic
-  isSidebarExpanded: boolean = false;
+  isSidebarExpanded: boolean = true;
 
-  toggleSidebar() {
-    this.isSidebarExpanded = !this.isSidebarExpanded;
-  }
+  // constructor(private toastr: ToastrService,) {}
+
+  // viewUsersClicked() {
+  //   this.toastr.warning('Yet to be implemented', 'Warning!', {
+  //     timeOut: 2000,
+  //   });
+  // }
 }

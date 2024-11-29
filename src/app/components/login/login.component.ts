@@ -33,7 +33,7 @@ export class LoginComponent {
         next: (response) => {
           // Navigate based on user role
           if (response.user.role === 'admin') {
-            this.router.navigate(['/home']);
+            this.router.navigate(['/home/dashboard']);
           } else {
             this.router.navigate(['/vendor']);
           }

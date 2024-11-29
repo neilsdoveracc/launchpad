@@ -1,7 +1,7 @@
 .home-container {
   display: flex;
   height: fit-content;
-  background-color: #aecbea;
+  background-color: #ffffff;
 
   /* Sidebar toggle button */
   .sidebar-toggle {
@@ -28,7 +28,7 @@
     width: 0;
     overflow: hidden;
     transition: width 0.3s ease;
-    background-color: #343a40; /* Dark background */
+    background-color: #032140; /* Dark background */
     color: white;
     height: 100%;
     position: fixed;
