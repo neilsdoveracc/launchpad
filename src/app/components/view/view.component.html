@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <div class="card-deck d-flex flex-wrap justify-content-between">
+  <!-- <div class="card-deck d-flex flex-wrap justify-content-between">
     <div 
       class="card" 
       style="width: 18rem;"  
@@ -22,6 +22,214 @@
           <strong>DeptID:</strong> <span>{{ job.DeptId }}</span><br>
           <strong>Status:</strong> <span>{{ job.Status }}</span>
         </p>
+      </div>
+    </div>
+  </div> -->
+  <div class="row">
+    <div class="col-md-6 col-lg-4" style="width: 30%;" *ngFor="let job of tile; let i = index" (click)="navigateToViewReq(job)">
+      <div class="grid-card-wrapper">
+        <div class="grid-ttl-wrapper">
+          <div style="display: flex; justify-content: space-between;">
+            <div class="float-left" style="width: 100%">
+              <span title="{{ job.JobTitle }}">
+                <h4 class="grid-ttl1 ellipsis-class" style="font-weight: bold;">{{ job.JobTitle  }}</h4>
+              </span>
+            </div>
+            <!-- <div class="ml-auto">
+              <span style="display: flex;">
+                <svg height="25" width="25" style="margin-top: 2px">
+                  <circle cx="12" cy="12" r="6" stroke-width="1"
+                    [ngStyle]="{ fill: job.Status }"></circle>
+                </svg>
+                <span [ngClass]="{
+                    'device-list-status-unprov':
+                    job.Status == 'Closed',
+                    'device-list-status-on': job.Status == 'Open',
+                    'device-list-status-off':
+                      job.Status == 'Rejected'
+                  }">{{ job.Status }}</span>
+              </span>
+            </div> -->
+          </div>
+        </div>
+        <div class="path-5"></div>
+        <div class="card-body p-0" style="padding-top: 3% !important;">
+          <div class="row" style="margin-left: 2%;">
+            <div class="col-md-6">
+              <div class="label-wrapper" style="display: block;">
+                <label>{{ 'ReqId' }}</label>
+                <span title="{{job.ReqId}}">
+                  <h4 class="ellipsis-class" style="font-weight: bold;">{{job.ReqId}}</h4>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="label-wrapper" style="display: block;">
+                <label>{{ 'Dept Name' }}</label>
+                <span title="{{job.ReqId}}">
+                  <h4 class="ellipsis-class" style="font-weight: bold;">{{job.DeptName}}</h4>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-left: 2%;">
+            <div class="col-md-6 pr-0">
+              <div class="label-wrapper" style="display: block;">
+                <label>{{ 'Requisitioned By' }} :</label>
+                <span title="{{ job.CreatedBy }}">
+                  <h4 class="ellipsis-class" style="font-weight: bold;">{{ job.CreatedBy }}</h4>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-6 pr-0">
+              <div class="label-wrapper" style="display: block;">
+                <label>{{ 'Initiated Date' }} :</label>
+                <span title="{{ job.CreatedDate }}">
+                  <h4 class="ellipsis-class" style="font-weight: bold;">{{ job.CreatedDate }}</h4>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="row" 
+              style="
+              min-height: 50px;
+              max-height: 70px;
+              background: #f8f8f8;
+              margin: 0px 0px 0px 0px;
+              border-top: 3px solid #ebe9e9;
+              padding-top: 3%; 
+              padding-bottom: 4%;
+            ">
+            <div>
+              <table class="w-100">
+                <tr>
+                  <td>
+                    <label>{{ 'Req Status' }} :</label>
+                    <div class="col-md-6 col-6">
+                      <div class="label-wrapper">
+                        <button *ngIf="job.Status==='Open'" type="button"
+                          class="btn btn-upload-yellow btn-circle-upload crs-default">
+                          <i class="fa fa-check"></i>
+                        </button>
+                        <span *ngIf="job.Status==='Open'" style="
+                            color: #575757;
+                            display: inline-block;
+                            padding-left: 10px;
+                            font-size: 13px;
+                            font-weight: bold;
+                          ">{{ 'Open' }}</span>
+                        <button *ngIf="job.Status==='Closed'" type="button"
+                          class="btn btn-upload-green btn-circle-upload crs-default">
+                          <i class="fa fa-times"></i>
+                        </button>
+                        <span *ngIf="job.Status==='Closed'" style="
+                            color: #575757;
+                            display: inline-block;
+                            padding-left: 10px;
+                            font-size: 13px;
+                            font-weight: bold;
+                          ">{{ 'Closed' }}</span>
+                        <button *ngIf="job.Status==='Rejected'" type="button"
+                          class="btn btn-upload-red btn-circle-upload crs-default">
+                          <i class="fa fa-check"></i>
+                        </button>
+                        <span *ngIf="job.Status==='Rejected'" style="
+                            color: #575757;
+                            display: inline-block;
+                            padding-left: 10px;
+                            font-size: 13px;
+                            font-weight: bold;
+                          ">{{ 'Rejected' }}</span>
+                      <button *ngIf="job.Status==='Initiated'" type="button"
+                        class="btn btn-upload-yellow btn-circle-upload crs-default">
+                        <i class="fa fa-check"></i>
+                      </button>
+                      <span *ngIf="job.Status==='Initiated'" style="
+                          color: #575757;
+                          display: inline-block;
+                          padding-left: 10px;
+                          font-size: 13px;
+                          font-weight: bold;
+                        ">{{ 'Initiated' }}</span>
+                    <button *ngIf="job.Status==='Approved'" type="button"
+                      class="btn btn-upload-green btn-circle-upload crs-default">
+                      <i class="fa fa-check"></i>
+                    </button>
+                    <span *ngIf="job.Status==='Approved'" style="
+                        color: #575757;
+                        display: inline-block;
+                        padding-left: 10px;
+                        font-size: 13px;
+                        font-weight: bold;
+                      ">{{ 'Approved' }}</span>
+                      <button *ngIf="job.Status==='In Progress'" type="button"
+                      class="btn btn-upload-yellow btn-circle-upload crs-default">
+                      <i class="fa fa-check"></i>
+                    </button>
+                    <span *ngIf="job.Status==='In Progress'" style="
+                        color: #575757;
+                        display: inline-block;
+                        padding-left: 10px;
+                        font-size: 13px;
+                        font-weight: bold;
+                      ">{{ 'In Progress' }}</span>
+                      <button *ngIf="job.Status==='Completed'" type="button"
+                      class="btn btn-upload-green btn-circle-upload crs-default">
+                      <i class="fa fa-check"></i>
+                    </button>
+                    <span *ngIf="job.Status==='Completed'" style="
+                        color: #575757;
+                        display: inline-block;
+                        padding-left: 10px;
+                        font-size: 13px;
+                        font-weight: bold;
+                      ">{{ 'Completed' }}</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="p-0">
+                      <img src="../../../assets/images/edit.svg"
+                        class="cursor-pointer"/>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="p-0">
+                      <img src="../../../assets/images/Delete.svg" class="cursor-pointer" />
+                    </div>
+                  </td>
+                  <td>
+                    <div class="p-0">
+                      <div class="action-menu">
+                        <div class="btn-group dropleft">
+                          <a
+                            class="btn btn-secondary"
+                            type="button"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="true"
+                          >
+                            <span class="fas fa-ellipsis-v bg-transperent"></span>
+                          </a>
+                          <div 
+                            class="dropdown-menu custom-pop-up"
+                          >
+                            <a
+                              class="dropdown-item"
+                              >{{ "View Shortlisted CVs" }}</a>
+                            <a
+                              class="dropdown-item"
+                              >{{ "View All CVs" }}</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

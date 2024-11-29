@@ -1,50 +1,50 @@
 [
         {
-            "ReqId": 12341,
+            "ReqId": 12346,
             "JobTitle": "Software Engineer",
-            "CreatedBy": "admin",
+            "CreatedBy": "ABCD",
             "CreatedDate": "2024-11-28T12:00:00",
-            "DeptId": 678,
+            "DeptName": "Digital",
+            "Status": "Closed"
+        },
+        {
+            "ReqId": 12345,
+            "JobTitle": "QA Engineer",
+            "CreatedBy": "ABCD",
+            "CreatedDate": "2024-11-28T12:00:00",
+            "DeptName": "Digital",
+            "Status": "Completed"
+        },
+        {
+            "ReqId": 12344,
+            "JobTitle": "Project Manager",
+            "CreatedBy": "ABCD",
+            "CreatedDate": "2024-11-28T12:00:00",
+            "DeptName": "Digital",
+            "Status": "In Progress"
+        },
+        {
+            "ReqId": 12343,
+            "JobTitle": "Team Lead",
+            "CreatedBy": "ABCD",
+            "CreatedDate": "2024-11-28T12:00:00",
+            "DeptName": "Digital",
             "Status": "Open"
         },
         {
             "ReqId": 12342,
-            "JobTitle": "QA Engineer",
-            "CreatedBy": "admin",
-            "CreatedDate": "2024-11-28T12:00:00",
-            "DeptId": 678,
-            "Status": "Closed"
-        },
-        {
-            "ReqId": 12343,
-            "JobTitle": "Project Manager",
-            "CreatedBy": "admin",
-            "CreatedDate": "2024-11-28T12:00:00",
-            "DeptId": 678,
-            "Status": "Closed"
-        },
-        {
-            "ReqId": 12344,
-            "JobTitle": "Team Lead",
-            "CreatedBy": "admin",
-            "CreatedDate": "2024-11-28T12:00:00",
-            "DeptId": 678,
-            "Status": "Open"
-        },
-        {
-            "ReqId": 12345,
             "JobTitle": "Director",
-            "CreatedBy": "admin",
+            "CreatedBy": "ABCD",
             "CreatedDate": "2024-11-28T12:00:00",
-            "DeptId": 678,
-            "Status": "Rejected"
+            "DeptName": "Digital",
+            "Status": "Approved"
         },
         {
-            "ReqId": 12346,
+            "ReqId": 12341,
             "JobTitle": "Software Engineer",
-            "CreatedBy": "admin",
+            "CreatedBy": "ABCD",
             "CreatedDate": "2024-11-28T12:00:00",
             "DeptId": 678,
-            "Status": "Open"
+            "Status": "Initiated"
         }
 ]

@@ -4,6 +4,6 @@ export interface TileData {
   JobTitle: string;
   CreatedBy: string;
   CreatedDate: string; // If the JSON contains date as string
-  DeptId: number;
+  DeptName: string;
   Status: string;
 }
