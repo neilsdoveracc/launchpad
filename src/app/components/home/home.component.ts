@@ -28,6 +28,6 @@ export class HomeComponent {
   // viewUsersClicked() {
   //   this.toastr.warning('Yet to be implemented', 'Warning!', {
   //     timeOut: 2000,
-  //   });
+  //   }); 
   // }
 }

@@ -9,40 +9,41 @@
 
   <!-- Editable Form -->
   <form class="request-form" [formGroup]="reqForm">
+
     <!-- Request ID -->
     <div class="form-group">
       <label for="reqId">Request ID</label>
-      <input type="text" class="form-control" id="reqId" formControlName="ReqId">
+      <input type="text" class="form-control" id="reqId" formControlName="ReqId" readonly>
     </div>
 
     <!-- Job Title -->
     <div class="form-group">
       <label for="jobTitle">Job Title</label>
-      <input type="text" class="form-control" id="jobTitle" formControlName="JobTitle">
+      <input type="text" class="form-control" id="jobTitle" formControlName="JobTitle" readonly>
     </div>
 
     <!-- Created By -->
     <div class="form-group">
       <label for="createdBy">Created By</label>
-      <input type="text" class="form-control" id="createdBy" formControlName="CreatedBy">
+      <input type="text" class="form-control" id="createdBy" formControlName="CreatedBy" readonly>
     </div>
 
     <!-- Created Date -->
     <div class="form-group">
       <label for="createdDate">Created Date</label>
-      <input type="text" class="form-control" id="createdDate" formControlName="CreatedDate">
+      <input type="text" class="form-control" id="createdDate" formControlName="CreatedDate" readonly>
     </div>
 
     <!-- Department ID -->
     <div class="form-group">
       <label for="deptId">Department ID</label>
-      <input type="text" class="form-control" id="deptId" formControlName="DeptId">
+      <input type="text" class="form-control" id="deptId" formControlName="DeptId" readonly>
     </div>
 
     <!-- Status -->
     <div class="form-group">
       <label for="status">Status</label>
-      <input type="text" class="form-control" id="status" formControlName="Status">
+      <input type="text" class="form-control" id="status" formControlName="Status" readonly>
     </div>
 
     <!-- Approve to Next Level -->
@@ -56,39 +57,32 @@
 
     <!-- CVs Uploaded Section: Only shown for Admin -->
     <div class="form-group mt-4" *ngIf="isAdmin">
-      <h3>CVs Uploaded</h3>
-
+      <h3>Candidates shortlisted</h3>
       <!-- Table for CVs -->
       <table class="table table-striped mt-3">
         <thead>
           <tr>
             <th>Name</th>
             <th>Vendor Name</th>
-            <th>CV</th>
+            <th>Resume</th>
+            <th>Status</th>
+            <th>Rating</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Loop through candidates array using *ngFor -->
           <tr *ngFor="let candidate of candidates">
             <td>{{ candidate.name }}</td>
             <td>{{ candidate.vendor }}</td>
             <td>
-              <a
-                [href]="'../../../assets/' + candidate.cv"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View CV
-              </a>
+              <a [href]="'../../../assets/' + candidate.cv" target="_blank" rel="noopener noreferrer">View CV</a>
             </td>
+            <td>{{ candidate.status }}</td>
+            <td>{{ candidate.rating }}</td>
           </tr>
         </tbody>
       </table>
-
-      <!-- Message for empty list (optional) -->
-      <p *ngIf="candidates.length === 0" class="text-muted">
-        No CVs uploaded yet.
-      </p>
+      <p *ngIf="candidates.length === 0" class="text-muted">No CVs uploaded yet.</p>
     </div>
+
   </form>
 </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-job',
@@ -15,12 +16,23 @@ export class JobComponent {
   sections: { [key: string]: boolean } = {
     jobDetails: true,
     projectDetails: true,
-    additionalInfo: true
+    additionalInfo: true,
+    roleDetails : true
   };
 
-  constructor(private fb: FormBuilder) {
+  todayDate: any;
+  
+  getToday(): string {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are zero-indexed
+    const day = today.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  constructor(private fb: FormBuilder , private router: Router) {
     this.jobForm = this.fb.group({
-      jrfDate: ['', Validators.required],
+      jrfDate: [{ value: this.getToday(), disabled: true }],
       jobTitle: ['', Validators.required],
       department: ['', Validators.required],
       project: [''],
@@ -40,7 +52,8 @@ export class JobComponent {
     if (this.jobForm.valid) {
       console.log('Form submitted:', this.jobForm.value);
       alert('Job submitted successfully!');
-      this.jobForm.reset();
+      this.jobForm.reset();  
+      this.router.navigate(['/home/view']);    
     }
   }
 }

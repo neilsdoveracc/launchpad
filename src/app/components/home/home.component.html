@@ -25,12 +25,15 @@
           <i class="bi bi-eye"></i> View Users
         </a>
       </li>
+      <li class="sidebar-item">
+        <a routerLink="/" routerLinkActive="/" class="sidebar-link logout-link">
+          <span>Logout</span>
+        </a>
+      </li>
     </ul>
   </nav>
   
   <div class="content">
     <router-outlet></router-outlet>
   </div>
-
-  <a class="logout-link" style="margin-top: 1%;" routerLink="/">Logout</a>
 </div>

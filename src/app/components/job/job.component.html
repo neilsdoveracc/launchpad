@@ -10,64 +10,125 @@
       </div>
       <div *ngIf="sections['jobDetails']">
         <div class="row">
-          <label for="jrfDate">JRF Date</label> <!-- date today not edit -->
-          <textarea id="jrfDate" formControlName="jrfDate"></textarea>
+          <label for="jrfDate">JRF Date</label>
+          <input type="date" id="jrfDate" formControlName="jrfDate" readonly />
         </div>
         <div class="row">
-          <label for="jobTitle">Job Title</label><!-- mandatory -->
-          <textarea id="jobTitle" formControlName="jobTitle"></textarea>
+          <label for="department">Department*</label>
+          <select id="department" formControlName="department">
+            <option value="">Select Department</option>
+            <option value="hr">Digital</option>
+          </select>
         </div>
         <div class="row">
-          <label for="department">Department</label>
-          <textarea id="department" formControlName="department"></textarea>
+          <label for="jobTitle">Job Title*</label>
+          <select id="jobTitle" formControlName="jobTitle">
+            <option value="">Select Title</option>
+            <option value="sw">Software Developer</option>
+            <option value="tl">Team Lead</option>
+            <option value="pm">Project Manager</option>
+            <option value="qa">QA Engineer</option>
+          </select>
         </div>
         <div class="row">
-          <label for="project">Project</label>
-          <textarea id="project" formControlName="project"></textarea>
+          <label for="Project">Project</label>
+          <select id="project" formControlName="project">
+            <option value="">Select Project</option>
+            <option value="hr">Insight</option>
+            <option value="engineering">Hydro-Connect</option>
+            <option value="sales">UniSecure</option>
+          </select>
         </div>
         <div class="row">
-          <label for="managerName">Hiring Manager Name</label>
-          <textarea id="managerName" formControlName="managerName"></textarea>
+          <label for="managerName">Hiring Manager*</label>
+          <select id="managerName" formControlName="managerName">
+            <option value="">Select Hiring Manager</option>
+            <option value="cm">Sachin S</option>
+            <option value="hv">Vaibhav G</option>
+            <option value="rm">Chaitra G M</option>
+          </select>
         </div>
         <div class="row">
-          <label for="location">Number of positions open</label>
-          <textarea id="location" formControlName="positions"></textarea>
+          <label for="location">Number of positions open*</label><!-- number only -->
+          <textarea id="location" formControlName="positions"> 1</textarea>
         </div>
         <div class="row">
-          <label for="location">Duration of contract</label>
-          <textarea id="location" formControlName="duration"></textarea>
+          <label for="location">Duration of contract in Months*</label><!-- show 2 fields with mm-yyyy -->
+          <textarea id="location" formControlName="duration">12</textarea>
         </div>
         <div class="row">
-          <label for="location">Start Date</label>
-          <textarea id="location" formControlName="start"></textarea>
+          <label for="location">Start Date*</label><!-- date field -->
+          <input type="date"  id="location" formControlName="start">
         </div>
         <div class="row">
-          <label for="location">End Date</label>
-          <textarea id="location" formControlName="end"></textarea>
+          <label for="location">End Date*</label><!-- date field -->
+          <input type="date" id="location" formControlName="end">
+        </div>
+        <div class="row radio-group">
+          <label>Competency:*</label>
+          
+          <div class="radio-option">
+            <input type="radio" id="Exisiting" name="Competency" value="Exisiting" />
+            <label for="fullTime">Exisiting</label>
+          </div>          
+          <div class="radio-option">
+            <input type="radio" id="partTime" name="Competency" value="New" />
+            <label for="partTime">New</label>
+          </div>
+        </div>
+        <div class="row radio-group">
+          <label>Employment Type:*</label>
+          
+          <div class="radio-option">
+            <input type="radio" id="Exisiting" name="Competency" value="cft" />
+            <label for="fullTime">Contract - Full Time</label>
+          </div>          
+          <div class="radio-option">
+            <input type="radio" id="partTime" name="Competency" value="cpt" />
+            <label for="partTime">Contract - Part Time</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="partTime" name="Competency" value="free" />
+            <label for="partTime">Freelance</label>
+          </div>
         </div>
         <div class="row">
-          <label for="location">Competency</label>
-          <textarea id="location" formControlName="Competency"></textarea>
+          <label for="location">Location Type Name*</label>
+          <select id="location" formControlName="location">
+            <option value="">Select Location</option>
+            <option value="cm">Remote</option>
+            <option value="rm">On-site</option>
+            <option value="rm">Hybrid</option>
+          </select>
         </div>
         <div class="row">
-          <label for="location">Employment Type</label>
-          <textarea id="location" formControlName="empType"></textarea>
+          <label for="location">Location*</label>
+          <select id="location" formControlName="location">
+            <option value="">Select Office Location</option>
+            <option value="cm">BTP</option>
+            <option value="hv">PTS</option>
+            <option value="rm">Jigani</option>
+          </select>
+        </div>
+        <div class="row radio-group">
+          <label>New/Replacement:*</label>
+          
+          <div class="radio-option">
+            <input type="radio" id="fullTime" name="projectType" value="fullTime" />
+            <label for="fullTime">New</label>
+          </div>          
+          <div class="radio-option">
+            <input type="radio" id="partTime" name="projectType" value="partTime" />
+            <label for="partTime">Replacement</label>
+          </div>
         </div>
         <div class="row">
-          <label for="location">Location Type</label>
-          <textarea id="location" formControlName="locationType"></textarea>
-        </div>
-        <div class="row">
-          <label for="location">Location</label>
-          <textarea id="location" formControlName="location"></textarea>
-        </div>
-        <div class="row">
-          <label for="location">Estimated Budget</label>
+          <label for="location">Estimated Budget (₹)*</label>
           <textarea id="location" formControlName="budget"></textarea>
         </div>
         <div class="row">
-          <label for="location">Working Hours</label>
-          <textarea id="location" formControlName="hrs"></textarea>
+          <label for="location">Working Hours*</label>
+          <textarea id="location" formControlName="hrs">9</textarea>
         </div>
       </div>
     </div>
@@ -80,39 +141,39 @@
       </div>
       <div *ngIf="sections['roleDetails']">
         <div class="row">
-          <label for="jrfDate">Roles And Responsibility</label>
-          <textarea id="jrfDate" formControlName="RolesAndResponsibility"></textarea>
+          <label for="role">Roles And Responsibility*</label><!-- mandatory paragraph -->
+          <textarea id="role" formControlName="RolesAndResponsibility" rows="4" cols="50"></textarea>
         </div>
         <div class="row">
-          <label for="jobTitle">Minimum Qualification</label><!-- mandatory -->
+          <label for="jobTitle">Minimum Qualification*</label><!-- mandatory -->
           <textarea id="jobTitle" formControlName="MinQualification"></textarea>
         </div>
         <div class="row">
-          <label for="department">Required Skills</label>
+          <label for="department">Required Skills*</label><!-- mandatory paragraph -->
           <textarea id="department" formControlName="RequiredSkills"></textarea>
         </div>
         <div class="row">
-          <label for="project">Preferred Skills</label>
+          <label for="project">Preferred Skills</label><!-- mandatory paragraph -->
           <textarea id="project" formControlName="PreferredSkills"></textarea>
         </div>
         <div class="row">
-          <label for="managerName">Specialization</label>
+          <label for="managerName">Specialization</label><!-- mandatory paragraph -->
           <textarea id="managerName" formControlName="Specialization"></textarea>
         </div>
         <div class="row">
-          <label for="location">Total Experience open</label>
+          <label for="location">Total Experience*</label><!-- mandatory int -->
           <textarea id="location" formControlName="TotalExp"></textarea>
         </div>
         <div class="row">
-          <label for="location">Relevant Experience</label>
+          <label for="location">Relevant Experience*</label>
           <textarea id="location" formControlName="RelevantExp"></textarea>
         </div>
         <div class="row">
-          <label for="location">CTQ</label>
+          <label for="location">CTQ</label><!-- mandatory paragraph -->
           <textarea id="location" formControlName="CTQ"></textarea>
         </div>
         <div class="row">
-          <label for="location">Benefits</label>
+          <label for="location">Benefits</label><!-- mandatory paragraph -->
           <textarea id="location" formControlName="Benefits"></textarea>
         </div>
         <div class="row">
@@ -124,16 +185,13 @@
           <textarea id="location" formControlName="References"></textarea>
         </div>
         <div class="row">
-          <label for="location">Location</label>
-          <textarea id="location" formControlName="location"></textarea>
-        </div>
-        <div class="row">
-          <label for="location">Rate Card Id</label>
-          <textarea id="location" formControlName="RateCardId"></textarea>
-        </div>
-        <div class="row">
-          <label for="location">Status</label>
-          <textarea id="location" formControlName="Status"></textarea>
+          <label for="vendor">Preferred Vendor*</label>
+          <select id="vendor" formControlName="vendor">
+            <option value="">Select Vendor</option>
+            <option value="cm">A</option>
+            <option value="rm">B</option>
+            <option value="rm">C</option>
+          </select>
         </div>
       </div>
     </div>
@@ -145,12 +203,20 @@
       </div>
       <div *ngIf="sections['additionalInfo']">
         <div class="row">
-          <label for="jrfDate">Sourcing Manager</label>
-          <textarea id="jrfDate" formControlName="SourcingManager"></textarea>
+          <label for="managerName">Sourcing Manager*</label>
+          <select id="managerName" formControlName="managerName">
+            <option value="">Select Sourcing Manager</option>
+            <option value="cm">Shilpi S</option>
+            <option value="hv">Atibhan</option>
+          </select>
         </div>
         <div class="row">
-          <label for="jobTitle">Mandatory Approver</label><!-- mandatory -->
-          <textarea id="jobTitle" formControlName="mandatoryApprover"></textarea>
+          <label for="location">Mandatory Approver*</label>
+          <select id="location" formControlName="location">
+            <option value="cm">Sachin S</option>
+            <option value="hv">Vaibhav G</option>
+            <option value="rm">Chaitra G M</option>
+          </select>
         </div>
       </div>
     </div>

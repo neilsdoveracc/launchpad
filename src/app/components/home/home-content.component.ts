@@ -12,7 +12,7 @@ import { RouterLink } from '@angular/router';
         <div class="col-12 d-flex justify-content-between align-items-center">
           <h1 class="text-primary">Welcome, {{ username }}</h1>
           <div class="action-buttons">
-            <button class="btn btn-success me-2" (click)="createUser()">Create User</button>
+            <button class="btn btn-success me-2" routerLink="/home/user">Create User</button>
             <button class="btn btn-primary" routerLink="/home/job">Create JRF</button>
           </div>
         </div>
@@ -63,7 +63,5 @@ import { RouterLink } from '@angular/router';
 export class HomeContentComponent {
   username: string = 'User';
 
-  createUser() {
-    // Add your create user logic here
-  }
+
 }

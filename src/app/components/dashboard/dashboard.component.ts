@@ -2,8 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input } from '
 import { CommonModule } from '@angular/common';
 import { Chart, registerables } from 'chart.js';
 import  ChartDataLabels from 'chartjs-plugin-datalabels';
-import { ToastrService } from 'ngx-toastr';
-import { ToastrModule } from 'ngx-toastr';
 import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 
 Chart.register(...registerables);

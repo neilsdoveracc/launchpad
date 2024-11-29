@@ -97,15 +97,20 @@
 
   /* Logout link */
   .logout-link {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    display: inline-block;
     padding: 5px 10px;
     background-color: #dc3545;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     margin-right: 2rem;
+    font-weight: bold;  /* This makes the text bold */
+  }
+  
+  .logout-link span {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
   }
 
   /* Responsive adjustments */

@@ -24,24 +24,48 @@ export class ViewReqComponent implements OnInit {
     {
       name: 'John Doe',
       vendor: 'Vendor A',
-      cv: 'john_doe_cv.pdf'
+      cv: 'john_doe_cv.pdf',
+      status: 'submitted',
+      rating : '--'
     },
     {
       name: 'Jane Smith',
       vendor: 'Vendor B',
-      cv: 'jane_smith_cv.pdf'
+      cv: 'jane_smith_cv.pdf',
+      status: 'shortlisted',
+      rating : '--'
     },
     {
       name: 'Michael Johnson',
       vendor: 'Vendor C',
-      cv: 'michael_johnson_cv.pdf'
+      cv: 'michael_johnson_cv.pdf',
+      status: 'in progress',
+      rating : '4★'
     },
     {
       name: 'Emily Davis',
       vendor: 'Vendor D',
-      cv: 'emily_davis_cv.pdf'
+      cv: 'emily_davis_cv.pdf',
+      status: 'submitted',
+      rating : '--'
+    }
+    ,
+    {
+      name: 'Michael Scott',
+      vendor: 'Vendor D',
+      cv: 'emily_davis_cv.pdf',
+      status: 'selected',
+      rating : '5★'
+    },
+    {
+      name: 'Jim Halpert',
+      vendor: 'Vendor D',
+      cv: 'emily_davis_cv.pdf',
+      status: 'rejected',
+      rating : '1★'
     }
   ];
+sections: any;
 
   constructor(
     private route: ActivatedRoute,
